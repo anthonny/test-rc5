@@ -1,0 +1,15 @@
+<article>
+  <header>
+    <img src="{{selectedPlace.image}}" alt=""><h1>{{selectedEvent.title}}</h1>
+  </header>
+  <section>
+    <ul>
+      <li *ngFor="let subject of selectedEvent.subjects">
+        <h2>{{subject.title}}</h2>
+        <div [innerHtml]="subject.abstract"></div>
+      </li>
+    </ul>
+
+  </section>
+
+</article>

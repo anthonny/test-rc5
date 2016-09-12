@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let event of events">
+    <a routerLink="/events/{{event.id}}" routerLinkActive="active">
+      {{event.title}}
+      <div>{{event.date | date:'dd/MM/yyyy'}}</div>
+    </a>
+
+  </li>
+</ul>

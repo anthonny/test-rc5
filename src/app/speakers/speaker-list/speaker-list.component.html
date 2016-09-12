@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let speaker of speakers">
+    <a  routerLink="/speakers/{{speaker.id}}" routerLinkActive="active">
+      {{speaker.name}}
+    </a>
+
+  </li>
+</ul>
