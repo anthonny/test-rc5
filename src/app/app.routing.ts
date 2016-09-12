@@ -4,6 +4,7 @@ import {EventsComponent} from './events/events.component.ts';
 import {SpeakersComponent} from './speakers/speakers.component.ts';
 
 const appRoutes: Routes = [
+  {path: '', component: EventsComponent},
   {path: 'events', component: EventsComponent},
   {path: 'events/:id', component: EventsComponent},
   {path: 'speakers', component: SpeakersComponent},
