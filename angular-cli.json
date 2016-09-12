@@ -17,7 +17,11 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "app/events/events.data.js",
+        "app/speakers/speakers.data.js",
+        "app/shared/places.data.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
