@@ -11,8 +11,4 @@ const appRoutes: Routes = [
   {path: 'speakers/:id', component: SpeakersComponent}
 ];
 
-export const appRoutingProviders: any[] = [
-
-];
-
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });

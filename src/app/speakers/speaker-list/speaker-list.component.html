@@ -1,7 +1,8 @@
+<input type="text" class="filter" placeholder="Filter..." [(ngModel)]="speakerFilter">
 <ul>
-  <li *ngFor="let speaker of speakers">
+  <li *ngFor="let speaker of speakers | speaker: speakerFilter">
     <a  routerLink="/speakers/{{speaker.id}}" routerLinkActive="active">
-      {{speaker.name}}
+      <img class="avatar" [src]="speaker.avatar" [alt]="speaker.name" /> {{speaker.name}}
     </a>
 
   </li>

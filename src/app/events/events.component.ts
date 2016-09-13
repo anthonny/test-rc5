@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
+import { Event } from './shared/event.model';
+import { EventService } from './shared/event.service';
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -13,10 +16,10 @@ export class EventsComponent implements OnInit, OnDestroy {
   selectedEvent: any;
   events: any[];
   sub: Subscription;
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService) { }
 
   ngOnInit() {
-    this.events = njEvents;
+    this.events = this.eventService.getEvents();
     this.sub = this.route
       .params
       .subscribe(params => {
@@ -24,11 +27,8 @@ export class EventsComponent implements OnInit, OnDestroy {
           this.router.navigate(['/events', this.events[0].id]);
           return;
         }
-        this.selectedId = params['id'];
-        const _selectedEvents = njEvents.filter(event => {
-          return event.id === this.selectedId;
-        });
-        this.selectedEvent = _selectedEvents.length && _selectedEvents[0]
+
+        this.selectedEvent = this.eventService.getEvent(params['id']);
       })
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { SpeakerService } from './shared/speaker.service';
+import { Speaker } from './speaker.model';
 
 @Component({
   selector: 'app-speakers',
@@ -9,16 +11,16 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class SpeakersComponent implements OnInit, OnDestroy {
 
-  speakers: any[];
+  speakers: Speaker[];
   selectedSpeaker: any;
   sub: Subscription;
 
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  constructor(private route: ActivatedRoute, private router: Router, private speakerService: SpeakerService) { 
     
   }
 
   ngOnInit() {
-    this.speakers = njSpeakers;
+    this.speakers = this.speakerService.getSpeakers();
     this.sub = this.route
       .params
       .subscribe(params => {
@@ -27,11 +29,7 @@ export class SpeakersComponent implements OnInit, OnDestroy {
           return;
         }
 
-        const _selectedSpeakers = this.speakers.filter(speaker => {
-          return speaker.id === params['id'];
-        });
-
-        this.selectedSpeaker = _selectedSpeakers.length && _selectedSpeakers[0]
+        this.selectedSpeaker = this.speakerService.getSpeaker(params['id']);
       })
   }
 

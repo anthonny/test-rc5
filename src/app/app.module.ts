@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
 
-import { routing,
-         appRoutingProviders } from './app.routing';
+import { routing } from './app.routing';
 import { SpeakersComponent } from './speakers/speakers.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { EventListComponent } from './events/event-list/event-list.component';
@@ -16,6 +15,12 @@ import { PageContainerComponent } from './page-container/page-container.componen
 import { NavigationComponent } from './navigation/navigation.component';
 import { SpeakerListComponent } from './speakers/speaker-list/speaker-list.component';
 import { SpeakerDetailComponent } from './speakers/speaker-detail/speaker-detail.component';
+
+import { EventService } from './events/shared/event.service';
+import { SpeakerService } from './speakers/shared/speaker.service';
+import { EventPipe } from './events/event-list/event.pipe';
+import { SpeakerPipe } from './speakers/speaker-list/speaker.pipe';
+import { PlaceService } from './shared/place.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,9 @@ import { SpeakerDetailComponent } from './speakers/speaker-detail/speaker-detail
     PageContainerComponent,
     NavigationComponent,
     SpeakerListComponent,
-    SpeakerDetailComponent
+    SpeakerDetailComponent,
+    EventPipe,
+    SpeakerPipe
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,11 @@ import { SpeakerDetailComponent } from './speakers/speaker-detail/speaker-detail
     RouterModule,
     routing
   ],
-  providers: [appRoutingProviders],
+  providers: [
+    EventService,
+    SpeakerService,
+    PlaceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

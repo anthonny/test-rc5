@@ -35,3 +35,27 @@ a.button:hover {
     background-color: rgba(245, 166, 35, 100);
     color: rgba(0, 116, 189, 100);
 }
+
+img.avatar {
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 100);
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+img.map {
+    border: 2px solid rgba(255, 255, 255, 100);
+    width: 300px;
+    height: auto;
+    vertical-align: middle;
+}
+
+input.filter {
+    width: 100%;
+    height: 60px;
+    font-size: 24px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}

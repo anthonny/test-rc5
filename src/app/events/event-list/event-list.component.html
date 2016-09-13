@@ -1,5 +1,6 @@
+<input class="filter" type="text" placeholder="Filter..." [(ngModel)]="eventFilter">
 <ul>
-  <li *ngFor="let event of events">
+  <li *ngFor="let event of events | event: eventFilter">
     <a routerLink="/events/{{event.id}}" routerLinkActive="active">
       {{event.title}}
       <div>{{event.date | date:'dd/MM/yyyy'}}</div>

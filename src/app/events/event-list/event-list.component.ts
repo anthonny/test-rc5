@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EventListComponent implements OnInit {
 
   @Input() events: any;
+  eventFilter: string;
 
   constructor() { }
 
