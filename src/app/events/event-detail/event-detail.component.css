@@ -13,11 +13,11 @@ h1, h2, h3 {
     flex-direction: row;
     color: rgba(0, 116, 189, 100);
 }
-:host > header a {
+:host > header > a {
     flex: 0 0 300px;
     align-content: center;
 }
-:host > header a img {
+:host > header > a img {
     vertical-align: middle;
 }
 :host > header > div {
